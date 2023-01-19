@@ -22,8 +22,10 @@ app.use("/api/user", UserRouter);
 app.use("/api/rewards", RewardRouter);
 app.use("/api/history", HistoryRouter);
 
-app.get("/" , () => {
-    return {message: "Hello to lucky wheel !"}
+app.get("/" , (req, res, next) => {
+    return res.status(200).json({
+        message: "Welcome to lucky wheel",
+    });
 })
 
 const connectDb = async () => {
