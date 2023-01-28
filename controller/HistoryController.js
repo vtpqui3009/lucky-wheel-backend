@@ -42,7 +42,7 @@ const createHistory = async (req, res, next) => {
 
 const index = async (req, res, next) => {
     try {
-        const histories = await History.find();
+        const histories = await History.find().sort('-createdAt');
         
         return res.status(200).json({'histories': histories});
         
